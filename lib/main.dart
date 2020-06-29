@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
+import '';
 void main() {
   runApp(new MaterialApp(home: new HomePage()));
 }
@@ -30,11 +31,11 @@ class _HomePageState extends State<HomePage> {
               currentAccountPicture: new GestureDetector(
                 child: new CircleAvatar(
                   child: Icon(Icons.person, color: Colors.black),
-                ),
+                ),onTap:showToast(),
               ),
             ),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("Home Page"),
                   leading: new Icon(
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new Divider(),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("My Account"),
                   leading: new Icon(
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new Divider(),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("My Orders"),
                   leading: new Icon(
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new Divider(),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("Categories"),
                   leading: new Icon(
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new Divider(),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("Favourites"),
                   leading: new Icon(
@@ -84,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new Divider(),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("Settings"),
                   leading: new Icon(
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new Divider(),
             new InkWell(
-                onTap: () {},
+                onTap: showToast,
                 child: new ListTile(
                   title: new Text("About"),
                   leading: new Icon(
@@ -107,6 +108,18 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+  showToast() {
+    Fluttertoast.showToast(
+        msg: "welcome",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 3,
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+        fontSize: 16.0
     );
   }
 }
