@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:helloworld/Pages/ProductDetails.dart';
 
@@ -24,16 +22,41 @@ class _ProductsState extends State<Products> {
     },
     {
       "name": "blazer",
-      "picture": "images/products/blazer1.jpeg",
+      "picture": "images/products/dress2.jpeg",
       "oldPrice": 130,
       "price": 95
     },
     {
       "name": "dress",
-      "picture": "images/products/dress1.jpeg",
+      "picture": "images/products/pants1.jpg",
       "oldPrice": 200,
       "price": 160
-    }
+    },
+    {
+      "name": "blazer",
+      "picture": "images/products/blazer2.jpeg",
+      "oldPrice": 130,
+      "price": 95
+    },
+    {
+      "name": "dress",
+      "picture": "images/products/skt1.jpeg",
+      "oldPrice": 200,
+      "price": 160
+    },
+    {
+      "name": "dress",
+      "picture": "images/products/skt2.jpeg",
+      "oldPrice": 200,
+      "price": 160
+    },
+    {
+      "name": "dress",
+      "picture": "images/products/shoe1.jpg",
+      "oldPrice": 200,
+      "price": 160
+    },
+
   ];
 
   @override
@@ -54,7 +77,7 @@ class _ProductsState extends State<Products> {
 
 class Product extends StatelessWidget {
   String product_name, product_picture;
-  int oldPrice, price;
+  var oldPrice, price;
 
   Product(this.product_name, this.product_picture, this.oldPrice, this.price);
 
@@ -63,10 +86,8 @@ class Product extends StatelessWidget {
     return new Container(
       child: Padding(padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           child: Card(
-            elevation: 50,
-            shadowColor: Colors.black12,
-            child: Hero(
-              tag: product_name,
+            elevation: 0.9,
+            shadowColor: Colors.black,
               child: Material(
                 child: InkWell(onTap: (){Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>ProductDetails(product_name,product_picture,oldPrice,price)));},
                   child: GridTile(
@@ -75,6 +96,7 @@ class Product extends StatelessWidget {
                         child: ListTile(
                           leading: new Text(product_name),
                           title: new Text("\$$price"),
+                          subtitle: new Text("\$${oldPrice}",style: TextStyle(color:Colors.grey,decoration: TextDecoration.lineThrough),),
                         ),
                       ),
                       child: Image.asset(product_picture, fit: BoxFit.cover)
@@ -83,7 +105,6 @@ class Product extends StatelessWidget {
               ),
             ),
           )
-      ),
     );
   }
 }

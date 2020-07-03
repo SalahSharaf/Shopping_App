@@ -37,8 +37,7 @@ class _HomePageState extends State<HomePage> {
             animationCurve: Curves.fastOutSlowIn,
             animationDuration: Duration(milliseconds: 1000),
             indicatorBgPadding: 4,
-          )
-      ),
+          )),
     );
     return Scaffold(
       appBar: AppBar(
@@ -135,6 +134,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: new ListView(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
         children: <Widget>[
           carousel,
           new Padding(
@@ -145,10 +146,10 @@ class _HomePageState extends State<HomePage> {
           new Column(
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              Container(
-                child: Products(),
+              new Container(
                 height: 280,
-              )
+                child: Products(),
+              ),
             ],
           ),
         ],
